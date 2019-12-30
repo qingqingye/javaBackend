@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry
+		location="${user.home}\.m2\repository\cn\easyproject\ojdbc7\12.1.0.2.0\ojdbc7-12.1.0.2.0.jar" />
+
+
+	<context id="learn" defaultModelType="flat"
+		targetRuntime="Mybatis3Simple">
+		<property name="javaFileEncoding" value="UTF-8" />
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		<!-- ###################此处也是自定义的仓库######################################################################################## -->
+		<jdbcConnection
+			connectionURL="jdbc:oracle:xxxxxxxxxxxxxxxxxxxxxxxx"
+			driverClass="xxxxxxxxxxxxxxxxxx" password="xxxxxxxxxxxx"
+			userId="xxxxxxxxx" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 生成实体类地址 -->
+		<javaModelGenerator
+			targetPackage="com.eve.domain"
+			targetProject="src/main/java/">
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- 生成mapxml文件 -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="src/main/resources/" />
+
+		<!-- 生成mapxml对应的client，也就是dao文件 -->
+		<javaClientGenerator
+			targetPackage="com.eve.dao" type="XMLMAPPER"
+			targetProject="src/main/java" />
+
+		<!-- 配置表信息 -->
+     	<table tableName="TI_ORIGIONAL_LEADS" domainObjectName="OrigionalLeads">
+			<generatedKey column="ORIGIONAL_LEADS_ID"
+				sqlStatement="SELECT SEQ_ORIGIONAL_LEADS.NEXTVAL FROM DUAL" />
+		</table> 
+    	<table tableName="TI_ORIGIONAL_EBUICK_LEADS" domainObjectName="OriginalEBuickLeads">
+			<generatedKey column="ORIGIONAL_LEADS_ID"
+				sqlStatement="SELECT SEQ_ORIGIONAL_EBUICK_LEADS.NEXTVAL FROM DUAL" />
+		</table> 
+		<table tableName="TT_LEADS" domainObjectName="Leads">
+			<generatedKey column="TRANSACTION_ID"
+				sqlStatement="SELECT SEQ_LEADS.NEXTVAL FROM DUAL" />
+		</table>
+ 		<table tableName="TM_SOURCE_MEDIA"
+			domainObjectName="SourceMedia">
+			<generatedKey column="MEDIA_ID"
+				sqlStatement="SELECT SEQ_LEADS.NEXTVAL FROM DUAL" />
+		</table>
+		<table tableName="TM_CHANNEL" domainObjectName="Channel">
+			<generatedKey column="CHANNEL_ID"
+				sqlStatement="SELECT SEQ_CHANNEL.NEXTVAL FROM DUAL" />
+		</table>
+		<table tableName="TR_MEDIA_CHANNEL"
+			domainObjectName="MediaChannel">
+			<generatedKey column="MEDIA_CHANNEL_ID"
+				sqlStatement="SELECT SEQ_MEDIA_CHANNEL.NEXTVAL FROM DUAL" />
+		</table>
+		<table tableName="TT_IMPORT_RECORD"
+			domainObjectName="ImRecord">
+			<generatedKey column="RECORD_ID"
+				sqlStatement="SELECT SEQ_IMPORT_RECORD.NEXTVAL FROM DUAL" />
+		</table>
+		<table tableName="TR_ORG_ORG" domainObjectName="OrgORG">
+            <generatedKey column="ORG_ID"
+                sqlStatement="SELECT SEQ_ORG_ORG.NEXTVAL FROM DUAL" />
+        </table>
+		
+	</context>
+</generatorConfiguration>

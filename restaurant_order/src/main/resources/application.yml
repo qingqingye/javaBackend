@@ -1,0 +1,17 @@
+server:
+  port: 8012
+  
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+  configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl 
+  
+#db
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@1x.2xx.1xx.xx:xxxx:ab012
+    username: xxxxx
+    password: xxxxx
+
+
